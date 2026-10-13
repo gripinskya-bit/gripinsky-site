@@ -168,6 +168,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #f0
 
 .workshop .faq a{color:var(--accent)}
 
+.workshop .modeling-link{color:var(--accent);text-decoration:underline;text-underline-offset:.16em;white-space:normal}
+
 
 /* Three compact visual answers between objections and the course program. */
 .workshop .solution{padding-bottom:70px}
