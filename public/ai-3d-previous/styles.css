@@ -1,0 +1,325 @@
+@font-face{font-family:Inter;src:url(assets/inter-cyr.woff2)}
+@font-face{font-family:Inter;src:url(assets/inter-latin.woff2);unicode-range:U+0000-024F}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink);--bg:#f6f4ef;--ink:#242824;--muted:#656b64;--accent:#284ee8;--line:#d8dad4}
+main{max-width:580px;margin:auto}
+header{padding:22px 24px;display:flex;justify-content:flex-end}
+.brand{font:800 17px Arial;letter-spacing:.03em;color:inherit;text-decoration:none}
+section{padding:54px 24px}
+h1,h2,h3,p,figure{margin:0}
+h1{font-size:clamp(42px,10.5vw,66px);line-height:1.02;letter-spacing:-.045em;font-weight:800}
+h2{font-size:38px;line-height:1.06;letter-spacing:-.035em;margin:16px 0 25px}
+h3{font-size:24px;line-height:1.12;letter-spacing:-.025em}
+p{font-size:16px;line-height:1.5;color:var(--muted)}
+em{font-style:normal;color:var(--accent)}
+.kicker{font:10px/1.4 monospace;letter-spacing:.09em;text-transform:uppercase;display:block}
+.hero{padding-top:28px}
+.hero .kicker{margin-bottom:25px}
+.hero-desc{margin-top:23px;font-size:18px}
+.slogan{font-size:11px;line-height:1.5;margin-top:21px}
+.facts{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 15px}
+.facts span{font-size:11px;border:1px solid var(--line);padding:8px 10px}
+.cta{width:100%;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:20px;font:700 15px/1.2 Inter,Arial;background:var(--accent);color:white;border:0;text-decoration:none;cursor:pointer}
+.cta>span:last-child{font-size:25px;font-weight:400}
+.painitems{display:grid;gap:12px}
+.painitems article{padding:25px 0;border-top:1px solid var(--line)}
+.painitems article>span{font:10px monospace;display:block;margin-bottom:18px}
+.painitems p{margin-top:12px}
+.pains>.cta,.program>.cta,.result>.cta{margin-top:28px}
+.myths article{padding:22px 0;border-top:1px solid var(--line)}
+.myth{display:block;font-size:20px;line-height:1.2;font-weight:700;margin-bottom:12px}
+.solutions{display:grid;gap:30px}
+.solutions article>span{font:12px monospace;display:block;margin-bottom:12px;color:var(--accent)}
+.solutions p{margin-top:12px}
+.intro{margin-bottom:26px}
+.step{border-top:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:22px 0;font-size:20px;font-weight:700}
+summary::-webkit-details-marker{display:none}
+summary b{margin-left:auto;font-size:20px;font-weight:400}
+details[open]>summary b{transform:rotate(45deg)}
+summary small{display:block;font:10px monospace;text-transform:uppercase;margin-bottom:6px;color:var(--muted)}
+.stepnum{font:13px monospace;color:var(--accent)}
+.stepbody{padding-bottom:26px}
+.diagram{background:#173b3a;padding:15px;margin-bottom:16px;color:#eee;aspect-ratio:1.5;display:grid;place-items:center;overflow:hidden}
+.diagram svg{width:100%;height:100%;max-height:230px}
+.tool{font:10px monospace;display:inline-block;padding:8px 10px;margin-top:14px;border:1px solid var(--line)}
+figure img{display:block;width:100%;aspect-ratio:1.1;object-fit:cover}
+figcaption{font-size:10px;color:var(--muted);margin-top:10px}
+.outcomes{margin:25px 0}
+.outcomes p{display:flex;gap:16px;color:var(--ink);padding:15px 0;border-bottom:1px solid var(--line);font-size:17px}
+.outcomes span{font:11px monospace;color:var(--accent);padding-top:5px}
+.fine{font-size:11px;line-height:1.45}
+.portrait{position:relative;margin-top:25px}
+.portrait img{width:100%;aspect-ratio:1;object-fit:cover;object-position:center 28%;display:block}
+.portrait>span{position:absolute;bottom:16px;left:16px;background:var(--bg);padding:12px;font:11px/1.3 monospace}
+.plan{border:1px solid var(--line);padding:24px;margin-top:14px}
+.plan h3{margin-top:24px}
+.price{font-size:50px;letter-spacing:-.045em;font-weight:700;margin:24px 0}
+.price span{font-size:24px}
+.plan p{font-size:14px;line-height:1.9;margin-bottom:26px}
+.pricing>.fine{margin-top:20px}
+.faq h2{font-size:30px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{font-size:16px;line-height:1.3}
+.faq p{padding-bottom:20px;font-size:14px}
+footer{padding:24px;display:grid;gap:20px;border-top:1px solid var(--line);font:10px monospace}
+footer a{color:inherit}
+dialog{max-width:340px;width:calc(100% - 36px);padding:30px;background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+dialog::backdrop{background:#0009}
+dialog h3{margin:25px 0 15px}
+.close{position:absolute;top:8px;right:12px;border:0;background:none;color:inherit;font-size:25px;cursor:pointer}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #f0a12f;outline-offset:4px}
+
+.workshop h1{font-size:clamp(37px,10vw,58px);font-weight:650;line-height:1.09}
+.compare{position:relative;margin-top:28px;overflow:hidden;aspect-ratio:1}
+.compare>img{width:100%;height:100%;object-fit:cover;display:block}
+.raw{position:absolute;top:0;left:0;width:48%;height:100%;overflow:hidden}
+.raw img{height:100%;width:auto;max-width:none;aspect-ratio:1;object-fit:cover}
+.compare-line{position:absolute;left:48%;top:0;height:100%;border-left:2px solid #284ee8;display:flex;align-items:center;color:#284ee8;font-size:28px;text-indent:-15px}
+.label{position:absolute;bottom:14px;background:#fff;padding:6px 9px;font:9px monospace}
+.before{left:10px}
+.after{right:10px}
+.demo-note{margin-top:8px}
+.workshop .cta{border-radius:7px}
+.workshop .pains{background:#e9ece3}
+.workshop .painitems article{background:#f7f8f2;padding:24px;border:0;border-radius:12px}
+.workshop .painitems h3{font-size:26px}
+.workshop .myths h2{font-family:Georgia,serif;font-style:italic;font-weight:400;font-size:44px}
+.workshop .myth{font-size:19px;color:#284ee8}
+.workshop .solution{background:#284ee8;--ink:white;--muted:#e2e8ff;--accent:#d4f793}
+.workshop .solutions article{display:grid;grid-template-columns:24px 1fr;gap:0 12px}
+.workshop .solutions article>span{grid-row:span 2}
+.workshop .solutions article h3{font-size:22px}
+.workshop .program h2{font-family:Georgia,serif;font-size:44px;font-weight:400}
+.workshop .diagram{border-radius:10px}
+.workshop .result{background:#e9ece3}
+.workshop .result h2{font-family:Georgia,serif;font-weight:400;font-size:42px}
+.workshop .result figure img{border-radius:80px 80px 8px 8px}
+.workshop .teacher .portrait img{border-radius:140px 140px 12px 12px}
+.workshop .teacher h2{font-size:44px}
+.workshop .pricing{background:#fff}
+.workshop .plan{border-radius:12px}
+.workshop .support{background:#eaf0ff;border-color:#284ee8}
+.workshop .faq{background:#e9ece3}
+
+/* Selected workshop palette: light cream and terracotta. */
+.workshop{--bg:#F6F2EA;--ink:#34312E;--muted:#716960;--accent:#B94F36;--line:#D9D0C4}
+
+.workshop section,.workshop .plan{color:var(--ink)}
+
+.workshop ::selection{background:#E8C5B5;color:#34312E}
+
+.workshop .compare-line{border-color:#B94F36;color:#B94F36}
+
+.workshop .pains,.workshop .result,.workshop .faq{background:#EEE6DA}
+
+.workshop .painitems article{background:#FBF8F2}
+
+.workshop .myth{color:#B94F36}
+
+.workshop .solution{background:#B94F36;--ink:#FFF9F0;--muted:#FFF3E9;--accent:#FFE3C9}
+
+.workshop .diagram{background:#EEE6DA;color:#34312E;--bg:#F6F2EA;--ink:#34312E;--muted:#716960;--line:#A69B8E;--accent:#B94F36;border:1px solid #D9D0C4}
+
+.workshop .pricing{background:#FBF8F2}
+
+.workshop .support{background:#F0DFD3;border-color:#B94F36}
+
+.workshop .label{background:#FBF8F2}
+
+
+/* Restored course copy, adapted to the workshop layout. */
+.workshop .course-hook{font-size:clamp(56px,16vw,90px);line-height:.98;text-transform:uppercase;letter-spacing:-.05em}
+
+.workshop .hero-benefit{font-size:16px;line-height:1.5;margin-top:12px}
+
+.workshop .hero .slogan{margin-top:16px}
+
+.workshop .hero-desc{margin-top:24px}
+
+.workshop .step summary{align-items:flex-start;font-size:19px;line-height:1.2;gap:12px}
+
+.workshop .step summary>span:nth-child(2){flex:1;min-width:0}
+
+.workshop .step summary b{flex-shrink:0}
+
+.workshop .stepnum{padding-top:3px}
+
+.workshop .step-output{margin-top:20px;padding:17px 0;border-top:1px solid var(--line);font-size:16px;line-height:1.4}
+
+.workshop .step-output>span{display:block;font:10px/1.4 monospace;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:9px}
+
+.workshop .program-progress{margin-top:20px}
+
+.workshop .program-progress>div{display:flex;gap:5px;margin-bottom:8px}
+
+.workshop .program-progress i{height:4px;flex:1;background:var(--line);border-radius:3px}
+
+.workshop .program-progress i.done{background:var(--accent)}
+
+.workshop .program-progress small{font-size:11px;color:var(--muted)}
+
+.workshop .result-flow{display:grid;gap:8px;margin:24px 0;font-size:17px}
+
+.workshop .result-flow b{color:var(--accent);font-weight:400}
+
+.workshop .practice-note{margin-top:16px}
+
+.workshop .faq a{color:var(--accent)}
+
+.workshop .modeling-link{color:var(--accent);text-decoration:underline;text-underline-offset:.16em;white-space:normal}
+
+
+/* Three compact visual answers between objections and the course program. */
+.workshop .solution{padding-bottom:70px}
+
+.workshop .solutions{gap:22px}
+
+.workshop .solutions article{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 96px;grid-template-rows:auto 1fr;align-items:end;gap:12px 8px;min-height:174px;padding:21px 20px;background:#F6F2EA;color:#34312E;border-radius:12px}
+
+.workshop .solutions article>span{grid-column:1;grid-row:1;font:11px/1.2 monospace;color:#A9402A;margin:0}
+
+.workshop .solutions article h3{grid-column:1;grid-row:2;font-size:clamp(19px,5vw,25px);line-height:1.1;letter-spacing:-.025em;max-width:400px}
+
+.workshop .solution-art{grid-column:2;grid-row:1 / 3;align-self:center;width:96px;height:96px;color:#B94F36}
+
+.workshop .solution-art svg{display:block;width:100%;height:100%}
+
+.workshop .solutions article:not(:last-child)::after{content:'↓';position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);color:#FFF9F0;font-size:19px;line-height:22px}
+
+@media(max-width:360px){.workshop .solutions article{grid-template-columns:minmax(0,1fr) 70px;padding:18px}
+.workshop .solution-art{width:70px;height:70px}
+}
+
+
+/* Compact editorial rhythm for the chosen mobile landing. */
+.workshop main{max-width:680px}
+
+.workshop section{padding:42px 22px}
+
+.workshop h2{font-size:clamp(28px,7.5vw,36px);line-height:1.12;margin:12px 0 20px;letter-spacing:-.035em}
+
+.workshop .myths h2,.workshop .program h2,.workshop .result h2{font-size:clamp(29px,7.8vw,37px);line-height:1.1}
+
+.workshop .teacher h2,.workshop .pricing h2{font-size:clamp(30px,7.8vw,38px)}
+
+.workshop .hero{padding-top:18px}
+
+.workshop .hero .kicker{margin-bottom:19px}
+
+.workshop .course-hook{font-size:clamp(50px,14.5vw,74px);line-height:.98}
+
+.workshop .hero-desc{font-size:17px;line-height:1.35;margin-top:21px}
+
+.workshop .compare{margin-top:22px;aspect-ratio:1.2;border-radius:8px}
+
+.workshop .facts{margin:16px 0 13px}
+
+.workshop .cta{padding:17px 19px;font-size:14px}
+
+.workshop .pains{padding-bottom:36px}
+
+.workshop .painitems{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+
+.workshop .painitems article{padding:17px 15px;border-radius:10px;min-height:196px;display:flex;flex-direction:column}
+
+.workshop .painitems article>span{font-size:9px;margin-bottom:18px;line-height:1.3}
+
+.workshop .painitems h3{font-size:clamp(17px,4.9vw,22px);line-height:1.15}
+
+.workshop .painitems p{font-size:13px;line-height:1.4;margin-top:auto;padding-top:12px}
+
+.workshop .model-detail{position:relative;margin:14px 0 0;border-radius:10px;overflow:hidden;background:#D9D2C8}
+
+.workshop .model-detail img{width:100%;height:190px;object-fit:cover;object-position:left center;display:block}
+
+.workshop .model-detail figcaption{position:absolute;left:10px;bottom:10px;margin:0;background:#FBF8F2;color:#34312E;padding:8px 9px;border-radius:3px;font:10px/1.3 monospace}
+
+.workshop .pains>.cta{margin-top:15px}
+
+.workshop .myths{padding-top:38px;padding-bottom:38px}
+
+.workshop .myth-list{margin-top:16px}
+
+.workshop .myth-list details{border-top:1px solid var(--line)}
+
+.workshop .myth-list details:last-child{border-bottom:1px solid var(--line)}
+
+.workshop .myth-list summary{padding:16px 0;font-size:16px;line-height:1.25;gap:15px}
+
+.workshop .myth-list summary span{flex:1}
+
+.workshop .myth-list summary b{color:#B94F36}
+
+.workshop .myth-list details p{padding:0 24px 16px 0;font-size:14px;line-height:1.5}
+
+.workshop .solution{padding-top:42px;padding-bottom:45px}
+
+.workshop .solutions{gap:17px}
+
+.workshop .solutions article{min-height:135px;padding:15px 16px;grid-template-columns:minmax(0,1fr) 74px}
+
+.workshop .solutions article h3{font-size:clamp(17px,4.7vw,21px);line-height:1.14}
+
+.workshop .solution-art{width:74px;height:74px}
+
+.workshop .solutions article:not(:last-child)::after{bottom:-18px;line-height:18px}
+
+.workshop .program .step summary{font-size:16px;line-height:1.22;gap:10px;padding:17px 0}
+
+.workshop .program .step summary small{font-size:9px}
+
+.workshop .program .stepnum{font-size:12px}
+
+.workshop .program .diagram{margin-bottom:12px}
+
+.workshop .program .stepbody>p,.workshop .result>.intro{font-size:14px;line-height:1.5}
+
+.workshop .result figure img{aspect-ratio:1.4;border-radius:9px}
+
+.workshop .result-flow{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin:18px 0}
+
+.workshop .result-flow span{font-size:11px;line-height:1.2;border-top:2px solid var(--accent);padding-top:8px}
+
+.workshop .result-flow b{display:none}
+
+.workshop .teacher-gallery{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:15px 0 21px}
+
+.workshop .teacher-gallery .portrait{margin:0}
+
+.workshop .teacher-gallery .portrait img{height:230px;aspect-ratio:auto;object-fit:cover;object-position:center 24%;border-radius:90px 90px 7px 7px}
+
+.workshop .teacher-gallery .portrait>span{bottom:6px;left:6px;padding:6px;font-size:9px}
+
+.workshop .teacher-work{margin:0;position:relative}
+
+.workshop .teacher-work img{display:block;width:100%;height:230px;object-fit:cover;object-position:center center;border-radius:7px}
+
+.workshop .teacher-work figcaption{position:absolute;left:6px;right:6px;bottom:6px;background:#FBF8F2;color:#34312E;font:9px/1.2 monospace;padding:7px}
+
+.workshop .teacher>p{font-size:14px}
+
+.workshop .price{font-size:40px;margin:18px 0}
+
+.workshop .plan{padding:19px}
+
+.workshop .plan h3{font-size:21px;margin-top:18px}
+
+.workshop .plan p{font-size:13px;margin-bottom:18px}
+
+.workshop .faq h2{font-size:29px}
+
+.workshop .faq summary{font-size:14px;padding:15px 0}
+
+@media(min-width:700px){.workshop main{max-width:760px}
+.workshop section{padding-left:58px;padding-right:58px}
+.workshop .painitems article{min-height:170px}
+.workshop .teacher-gallery .portrait img,.workshop .teacher-work img{height:300px}
+}
+
+@media(max-width:350px){.workshop .painitems{grid-template-columns:1fr}
+.workshop .painitems article{min-height:auto}
+.workshop .painitems p{margin-top:0}
+.workshop .result-flow{grid-template-columns:repeat(2,1fr)}
+}
