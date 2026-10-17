@@ -1,0 +1,362 @@
+/* ACID VOLUME. Native CSS; art-school rave and 3D viewport.
+   Design variance 9 / motion intensity 6 / visual density 4.
+   Every selector lives under .gai: the page is pasted into Tilda HTML blocks (T123)
+   and must not touch Tilda's own markup. Page-level rules use html:has(.gai) / body:has(.gai). */
+.gai{--bg:#101111;--ink:#f0f1e9;--muted:#b2b6ac;--accent:#defb32;--line:#3b3e36;--surface:#1b1d19;--pad:max(clamp(22px,5vw,80px),calc((100% - 1440px) / 2));--display:Unbounded,Geologica,sans-serif;--body:Geologica,sans-serif;--ease:cubic-bezier(.16,1,.3,1);color-scheme:dark}
+.gai,.gai *{box-sizing:border-box}
+html:has(.gai){scroll-behavior:smooth;scroll-padding-top:24px;scrollbar-color:#defb32 #101111}
+body:has(.gai){margin:0;background:#101111}.gai{color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.gai ::selection{background:var(--accent);color:var(--bg)}
+.gai{overflow:clip}
+.gai header{padding:28px var(--pad);border-bottom:1px solid var(--line);display:flex;align-items:center;min-height:92px}
+.gai .brand{font-family:var(--display);font-size:25px;font-weight:800;letter-spacing:-.03em;color:var(--ink);text-decoration:none;display:inline-flex;min-height:44px;align-items:center}
+.gai section{padding:100px var(--pad)}
+.gai h1,.gai h2,.gai h3,.gai p,.gai figure{margin:0}
+.gai h1,.gai h2,.gai h3{font-family:var(--display);font-weight:600;letter-spacing:-.035em;line-height:1.15;text-wrap:balance}
+.gai h2{font-size:clamp(36px,4.5vw,68px);max-width:1050px;margin:24px 0 52px}
+.gai h3{font-size:clamp(23px,2.15vw,32px)}
+.gai p{font-size:18px;line-height:1.65;color:var(--muted);max-width:70ch}
+.gai a{color:inherit;text-underline-offset:.25em}
+.gai img{max-width:100%;height:auto}
+.gai .kicker{font-size:13px;font-weight:500;line-height:1.5;letter-spacing:.025em;display:block;color:var(--muted)}
+.gai .cta{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:64px;width:min(100%,480px);padding:18px 24px;border:1px solid var(--accent);background:var(--accent);color:#101111;font:600 16px/1.35 var(--body);text-decoration:none;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.gai .cta>span:last-child{font-size:28px;font-weight:400;line-height:1;flex-shrink:0}
+.gai .arrow{display:inline-flex;vertical-align:-.15em}
+.gai .arrow svg{display:block;width:1em;height:1em}
+.gai .cta .arrow svg{width:26px;height:26px;transition:transform .2s var(--ease)}
+.gai .cta:hover .arrow svg{transform:translate(2px,-2px)}
+.gai .cta:hover{background:var(--ink);border-color:var(--ink);transform:translateY(-3px)}
+.gai .cta:active{transform:translateY(0) scale(.985)}
+.gai .cta:disabled{opacity:.5;cursor:not-allowed}
+.gai a:focus-visible,.gai button:focus-visible,.gai summary:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+.gai .fine,.gai figcaption{font-size:14px;line-height:1.55;color:var(--muted)}
+.gai .modeling-link{color:var(--accent);text-decoration:underline;display:inline;text-decoration-thickness:1px}
+.gai .hero{position:relative;isolation:isolate;background:var(--bg);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:24px;grid-template-rows:auto auto auto auto auto auto auto;padding-top:46px;padding-bottom:74px}
+.gai .hero-visual{grid-column:2;grid-row:1/6;align-self:center;width:116%;max-width:none;margin-left:-8%;mix-blend-mode:lighten;pointer-events:none;z-index:-1;perspective:1400px}
+/* Sculpture follows the pointer: JS eases a tilt on .hero-tilt and moves a light spot (a brightened copy masked by a radial gradient). */
+.gai .hero-tilt{position:relative;will-change:transform}
+.gai .hero-art,.gai .hero-art-light{display:block;width:100%;height:auto}
+.gai .hero-art-light{position:absolute;inset:0;mix-blend-mode:screen;filter:brightness(1.75) saturate(1.1);opacity:0;-webkit-mask-image:radial-gradient(circle at var(--lx,50%) var(--ly,45%),#000 0,rgba(0,0,0,.5) 16%,transparent 44%);mask-image:radial-gradient(circle at var(--lx,50%) var(--ly,45%),#000 0,rgba(0,0,0,.5) 16%,transparent 44%);transition:opacity .9s var(--ease)}
+.gai .hero.is-lit .hero-art-light{opacity:.6}
+.gai .hero-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.gai .hero>.kicker{grid-column:1;grid-row:1;align-self:end;color:var(--accent);margin-bottom:22px}
+.gai .course-hook{grid-column:1;grid-row:2;font-size:clamp(60px,6.5vw,96px);line-height:1.08;letter-spacing:-.04em;text-transform:uppercase;font-weight:750;width:max-content;max-width:100%;padding-bottom:8px}
+.gai .course-hook em{font-style:normal;color:var(--accent);display:inline-block}
+.gai .hero-desc{grid-column:1;grid-row:3;max-width:460px;margin:25px 0 19px;font-size:21px;line-height:1.5}
+.gai .hero-desc strong{font-weight:400}
+.gai .facts{grid-column:1;grid-row:4;display:flex;flex-wrap:wrap;gap:12px 24px;margin:0 0 24px;font-size:14px;color:var(--ink)}
+.gai .facts span{min-height:44px;display:flex;align-items:center}
+.gai .facts a{display:inline-flex;align-items:center;min-height:44px}
+.gai .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.gai .hero-actions .cta{flex:1 1 240px;width:auto}
+.gai .hero .hero-actions{grid-column:1;align-self:start;max-width:620px}
+.gai .cta-ghost{background:transparent;border-color:#f1f1eb6b;color:var(--ink)}
+.gai .cta-ghost:hover{background:transparent;border-color:var(--accent);color:var(--accent)}
+.gai .compare{--pos:48%;grid-column:1/-1;grid-row:6;position:relative;overflow:hidden;aspect-ratio:2.25;background:var(--surface);border:1px solid var(--line);cursor:ew-resize;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.gai .compare img{pointer-events:none;-webkit-user-drag:none}
+.gai .compare>img{width:100%;height:100%;object-fit:cover;display:block;object-position:center 50%}
+.gai .raw{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.gai .raw img{width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block}
+.gai .compare-line{position:absolute;left:var(--pos);top:0;z-index:1;height:100%;border-left:1px solid var(--accent);color:#101111;transform:translateX(-.5px)}
+.gai .compare-handle{position:absolute;top:50%;left:-22px;width:44px;height:44px;margin-top:-22px;display:grid;place-items:center;background:var(--accent);transition:transform .25s var(--ease)}
+.gai .compare-handle svg{display:block;width:26px;height:26px}
+.gai .compare:hover .compare-handle,.gai .compare.dragging .compare-handle{transform:scale(1.12)}
+.gai .compare-line:focus-visible{outline:none}.gai .compare-line:focus-visible .compare-handle{outline:3px solid var(--ink);outline-offset:3px}
+.gai .label{position:absolute;bottom:20px;background:var(--bg);padding:10px 14px;font-size:12px;line-height:1.2;color:var(--ink);letter-spacing:.04em;transition:opacity .25s var(--ease)}
+.gai .before{left:20px}.gai .after{right:20px}
+.gai .compare.hide-before .before,.gai .compare.hide-after .after{opacity:0}
+.gai .demo-note{grid-column:1/-1;grid-row:7;margin-top:10px}
+.gai .pains{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:0 36px}
+.gai .pains>.kicker,.gai .pains>h2,.gai .painitems{grid-column:1/-1}
+.gai .painitems{display:grid;grid-template-columns:1fr 1fr;gap:0 54px;margin-bottom:58px}
+.gai .painitems article{padding:35px 0 48px;border-top:1px solid var(--line);max-width:580px}
+.gai .painitems article:nth-child(even){transform:translateY(56px)}
+.gai .painitems article>span{display:block;font-size:13px;color:var(--accent);margin-bottom:27px}
+.gai .painitems article h3{font-size:clamp(26px,2.5vw,37px);line-height:1.2;max-width:530px}
+.gai .painitems article p{margin-top:20px;max-width:46ch}
+.gai .model-detail{grid-column:1;width:74%;margin-top:12px}
+.gai .model-detail img{width:100%;display:block;aspect-ratio:1.55;object-fit:cover}
+.gai figcaption{margin-top:10px}
+.gai .pains>.cta{grid-column:2;align-self:center;justify-self:end}
+.gai details{border-bottom:1px solid var(--line)}
+.gai summary{list-style:none;cursor:pointer;display:flex;gap:24px;align-items:center;min-height:72px;padding:24px 0;font-size:21px;font-weight:500;line-height:1.45;transition:color .2s var(--ease)}
+.gai summary::-webkit-details-marker{display:none}
+.gai summary:hover{color:var(--accent)}
+.gai summary b{margin-left:auto;font-weight:400;font-size:28px;line-height:1;width:44px;height:44px;display:grid;place-items:center;flex-shrink:0;transition:transform .3s var(--ease),background .3s var(--ease)}
+.gai details[open]>summary b{transform:rotate(45deg);color:var(--accent)}
+.gai details p{padding-bottom:24px;max-width:67ch;font-size:17px}
+.gai .program{padding-bottom:105px}
+.gai .program h2{margin-bottom:28px}
+.gai .program>.intro{margin-bottom:54px;max-width:62ch}
+.gai .step{border-bottom:1px solid var(--line)}
+.gai .step summary{padding:30px 0;gap:32px;font-family:var(--display);font-size:clamp(21px,2.4vw,32px);line-height:1.3}
+.gai .step summary>span:nth-child(2){flex:1;min-width:0;max-width:930px}
+.gai .stepnum{font-family:var(--display);font-weight:500;font-size:clamp(36px,5vw,72px);line-height:1.1;min-width:115px;color:var(--accent);font-variant-numeric:tabular-nums}
+.gai summary small{display:block;font:400 13px/1.6 var(--body);color:var(--muted);margin-bottom:8px;letter-spacing:0}
+.gai .stepbody{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);grid-template-rows:auto auto auto auto;column-gap:48px;padding:5px 0 38px 147px}
+.gai .diagram{grid-column:1;grid-row:1/5;background:var(--surface);padding:14px;display:grid;place-items:center;min-width:0;aspect-ratio:1.5;align-self:start;--line:#555b4c}
+.gai .diagram svg{width:100%;height:100%}
+.gai .diagram [stroke="rgba(177,80,63,0.8)"]{stroke:#a2af76}
+.gai .diagram [fill="rgba(185,79,54,0.12)"],.gai .diagram [fill="rgba(185,79,54,0.22)"],.gai .diagram [fill="rgba(185,79,54,0.06)"]{fill:#defb3220}
+.gai .diagram [fill="rgba(166,155,142,0.16)"]{fill:#b2b6ac20}
+.gai .stepbody>p{grid-column:2;font-size:18px;align-self:start;padding:0 0 16px}
+.gai .step-output{font-size:17px;line-height:1.6}
+.gai .step-output>span{display:block;margin-bottom:10px;color:var(--muted);font-size:13px;line-height:1.5}
+.gai .stepbody>.step-output{grid-column:2;border-top:1px solid var(--line);padding:16px 0}
+.gai .tool{grid-column:2;justify-self:start;font-size:13px;line-height:1.45;color:var(--accent);padding:7px 0}
+.gai .program-progress{grid-column:2;margin-top:18px}
+.gai .program-progress>div{display:flex;gap:6px;margin-bottom:10px;max-width:310px}
+.gai .program-progress i{display:block;flex:1;height:3px;background:var(--line)}
+.gai .program-progress .done{background:var(--accent)}
+.gai .program-progress small{font-size:13px;color:var(--muted)}
+.gai .program>.cta{margin:42px 0 0 auto}
+.gai .result{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:0 64px;background:var(--surface)}
+.gai .result>.kicker,.gai .result>h2,.gai .result>.intro{grid-column:1/-1}
+.gai .result>h2{margin-bottom:28px}
+.gai .result>.intro{margin-bottom:48px;max-width:70ch}
+.gai .result>figure{grid-column:1;grid-row:4/8}
+.gai .result figure img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.gai .result-flow{grid-column:2;display:grid;gap:5px;align-content:start;font-family:var(--display);font-size:21px;line-height:1.4}
+.gai .result-flow b{font-family:var(--body);color:var(--accent);font-weight:400;margin:3px 0;font-size:27px}
+.gai .result>.step-output{grid-column:2;border-top:1px solid var(--line);padding-top:25px;margin-top:25px}
+.gai .practice-note{grid-column:2;margin-top:22px}
+.gai .result>.cta{grid-column:2;margin-top:28px;width:100%}
+.gai .teacher{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0 65px}
+.gai .teacher>.kicker{grid-column:1/-1;margin-bottom:28px}
+.gai .teacher-gallery{grid-column:1;grid-row:2/4;display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.gai .portrait{position:relative;margin:0}
+.gai .portrait img{display:block;width:100%;aspect-ratio:.94;object-fit:cover;object-position:center 25%;filter:grayscale(1)}
+.gai .portrait>span{position:absolute;bottom:20px;left:20px;background:var(--accent);color:#101111;padding:16px 20px;font-size:14px;line-height:1.5}
+.gai .teacher-work{width:80%;justify-self:end}
+.gai .teacher-work img{width:100%;display:block;aspect-ratio:1.5;object-fit:cover}
+.gai .teacher>h2{grid-column:2;grid-row:2;align-self:start;font-size:clamp(38px,5.5vw,80px);margin:0 0 40px;position:sticky;top:40px}
+.gai .teacher>p{grid-column:2;grid-row:3;align-self:end;padding-bottom:28px;max-width:39ch;font-size:22px}
+.gai .pricing{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;background:var(--surface);border-top:1px solid var(--line)}
+.gai .pricing>.kicker,.gai .pricing>h2,.gai .pricing>.lead,.gai .pricing>.fine{grid-column:1/-1}
+.gai .pricing>h2{margin-bottom:28px}
+.gai .pricing>.lead{margin-bottom:52px;max-width:68ch}
+.gai .pricing>.fine+.fine{margin-top:6px}
+.gai .plan{padding:36px 32px;border:1px solid #5d6450;display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.gai .plan>h3{font-size:clamp(24px,2.35vw,34px);margin-top:26px}
+.gai .price{font-family:var(--display);font-size:clamp(44px,5.7vw,80px);font-weight:550;letter-spacing:-.04em;line-height:1.2;margin:34px 0;font-variant-numeric:tabular-nums}
+.gai .price span{font-size:.45em;font-weight:400}
+.gai .plan>p{font-size:17px;line-height:2;margin-bottom:34px}
+.gai .plan>.cta{margin-top:auto;width:100%}
+.gai .support{background:var(--accent);border-color:var(--accent);--ink:#101111;--muted:#3d4525;color:var(--ink)}
+.gai .support .cta{background:#101111;border-color:#101111;color:#f0f1e9}
+.gai .support .cta:hover{background:#343a22;border-color:#343a22}
+.gai .support .cta:focus-visible{outline-color:#101111}
+.gai .pricing>.fine{margin-top:22px}
+.gai .faq{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);column-gap:70px}
+.gai .faq>.kicker{grid-column:1/-1}
+.gai .faq>h2{grid-column:1;grid-row:2/15;font-size:clamp(30px,3.2vw,46px);margin-top:25px;position:sticky;top:32px;align-self:start}
+.gai .faq>details{grid-column:2}
+.gai .faq summary{font-size:19px;padding:23px 0}
+.gai .faq p{font-size:16px;line-height:1.7}
+/* Footer: structure, sizes and colours of the main site footer (gripinsky-site), set in the landing fonts and accent. */
+.gai footer{padding:48px var(--pad) 40px;border-top:1px solid var(--line);font-size:14px;line-height:1.45;color:var(--muted)}
+.gai .footer-grid{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(4,minmax(0,1fr));gap:40px}
+.gai .footer-brand{display:flex;flex-direction:column;gap:16px}
+.gai .footer-logo{display:block;width:228px;max-width:100%;height:auto;color:var(--ink)}
+.gai .footer-brand p{max-width:280px;font-size:14px;line-height:1.625;color:var(--muted)}
+.gai .nowrap{white-space:nowrap}
+.gai .footer-course{font-family:var(--display);font-weight:600;color:var(--accent);white-space:nowrap}
+.gai footer nav{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.gai footer nav:first-of-type{grid-column:4}
+.gai .footer-overline{font-size:11.6px;font-weight:600;line-height:1.5;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.gai footer nav a{color:var(--muted);text-decoration:none;transition:color .2s var(--ease)}
+.gai footer nav a:hover{color:var(--accent)}
+.gai .footer-legal{display:flex;justify-content:space-between;gap:8px 32px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;line-height:1.625;color:var(--muted)}
+.gai dialog{width:min(560px,calc(100% - 36px));max-height:calc(100dvh - 40px);padding:42px;background:var(--bg);color:var(--ink);border:1px solid var(--accent);box-shadow:0 24px 80px #0008}
+.gai dialog::backdrop{background:#101111d9}
+.gai dialog .kicker{padding-right:38px;color:var(--accent)}
+.gai dialog h3{margin:28px 0 18px;font-size:26px;line-height:1.3}
+.gai dialog p{font-size:17px}
+.gai .close{position:absolute;top:10px;right:10px;display:grid;place-items:center;width:44px;height:44px;padding:0;background:transparent;border:0;color:var(--ink);font-size:32px;cursor:pointer}
+.gai .close:hover{background:var(--surface)}
+/* Positioning statement */
+.gai .stance{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:64px;border-top:1px solid var(--line)}
+.gai .stance>.kicker,.gai .stance>h2{grid-column:1/-1}
+.gai .stance>h2{font-size:clamp(36px,4.6vw,72px);max-width:1200px;margin-bottom:48px}
+.gai .stance h2 em,.gai .final h2 em{font-style:normal;color:var(--accent)}
+.gai .stance>p{grid-column:2;font-size:20px;line-height:1.6}
+/* "Не начинал в 3D?" note next to the mesh figure */
+.gai .model-detail{grid-row:4}
+.gai .beginner{grid-column:2;grid-row:4;align-self:end;margin-bottom:34px;padding:32px;border:1px solid var(--accent);max-width:560px}
+.gai .beginner .kicker{color:var(--accent);margin-bottom:14px}
+.gai .beginner p{font-size:17px;color:var(--ink)}
+/* Closing call to action */
+.gai .final{border-top:1px solid var(--line);padding-top:120px;padding-bottom:120px}
+.gai .final h2{font-size:clamp(36px,5.2vw,84px);max-width:1150px;margin:0 0 48px}
+.gai .final .hero-actions{max-width:620px}
+/* Cookie banner: placement, sizes and buttons of the main site banner, in landing colours. */
+.gai .cookie-banner{position:fixed;left:24px;bottom:24px;z-index:9990;width:calc(100% - 48px);max-width:560px;padding:20px;background:var(--surface);border:1px solid #f1f1eb6b;box-shadow:0 25px 50px -12px #000c;color:var(--ink)}
+.gai .cookie-banner[hidden]{display:none}
+.gai .cookie-banner p{margin:0;max-width:none;font-size:14px;line-height:1.625;color:#c1c7c0}
+.gai .cookie-banner a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent)}
+.gai .cookie-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+.gai .cookie-actions button{min-height:44px;padding:8px 16px;border:1px solid transparent;font:650 14px/1.2 var(--body);cursor:pointer;transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease)}
+.gai .cookie-allow{background:var(--accent);color:#101111}
+.gai .cookie-allow:hover{background:var(--ink)}
+.gai .cookie-necessary{background:transparent;border-color:#f1f1eb6b!important;color:var(--ink)}
+.gai .cookie-necessary:hover{border-color:var(--accent)!important;color:var(--accent)}
+@media(prefers-reduced-motion:no-preference){
+ .gai .hero-visual{animation:gai-sculpture-settle 1.4s var(--ease) both}
+ .gai .course-hook{animation:gai-type-settle .85s var(--ease) both}
+ .gai details[open]>.stepbody,.gai details[open]>p{animation:gai-open-detail .35s var(--ease)}
+ @keyframes gai-sculpture-settle{from{transform:translateY(20px) rotate(-8deg) scale(.92);opacity:.65}to{transform:translateY(0) rotate(0) scale(1);opacity:1}}
+ @keyframes gai-type-settle{from{transform:translateY(18px);opacity:.6}to{transform:translateY(0);opacity:1}}
+ @keyframes gai-open-detail{from{transform:translateY(8px);opacity:.65}to{transform:translateY(0);opacity:1}}
+}
+@media(max-width:1100px){
+ .gai section{padding-top:80px;padding-bottom:80px}
+ .gai .course-hook{font-size:clamp(54px,6.4vw,72px)}
+ .gai .hero-desc{font-size:18px}
+ .gai .hero-visual{width:122%;margin-left:-12%}
+ .gai .stepbody{padding-left:0;column-gap:32px}
+ .gai .stepnum{min-width:85px}
+ .gai .teacher{gap:0 36px}.gai .teacher>p{font-size:19px}
+ .gai .faq{column-gap:40px}.gai .result{column-gap:36px}
+ .gai .plan{padding:28px 24px}
+ .gai .plan h3{font-size:25px}
+ .gai .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .gai .footer-brand{grid-column:1/-1}
+ .gai footer nav:first-of-type{grid-column:auto}
+ .gai .footer-legal{flex-direction:column}
+ .gai .stance{display:block}
+ .gai .stance>h2{font-size:clamp(30px,8vw,44px);margin-bottom:24px}
+ .gai .stance>p{font-size:17px}
+ .gai .beginner{margin:32px 0 0;padding:24px}
+ .gai .final{padding-top:72px;padding-bottom:72px}
+ .gai .final h2{font-size:clamp(30px,8.4vw,46px);margin-bottom:32px}
+ .gai .cookie-banner{left:12px;bottom:max(12px,env(safe-area-inset-bottom));width:calc(100% - 24px);padding:16px}
+ .gai .cookie-banner p{line-height:1.45}
+ .gai .cookie-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+ .gai .cookie-actions button{padding:8px 12px;line-height:1.2}
+}
+@media(max-width:767px){
+ .gai{--pad:22px}
+ .gai header{padding-top:18px;padding-bottom:18px;min-height:78px}
+ .gai .brand{font-size:21px}
+ .gai section{padding:64px var(--pad)}
+ .gai h2{font-size:clamp(30px,7vw,47px);margin-top:18px;margin-bottom:32px;letter-spacing:-.035em}
+ .gai h3{font-size:25px}
+ .gai p{font-size:16px}
+ .gai .kicker{font-size:12px}
+ .gai .hero{display:flex;flex-direction:column;padding-top:30px;padding-bottom:48px;gap:0}
+ .gai .hero>.kicker{order:0;align-self:flex-start;margin-bottom:20px}
+ .gai .course-hook{order:1;font-size:clamp(49px,9.9vw,76px);line-height:1.12;width:100%;max-width:100%;padding-bottom:0}
+ .gai .hero-desc{order:2;font-size:18px;margin:23px 0 0;max-width:520px}
+ .gai .hero-visual{order:3;width:100%;max-width:560px;align-self:center;margin:12px 0 -10px;z-index:0}
+ .gai .facts{order:4;margin:0 0 18px;gap:6px 20px;font-size:13px}
+ .gai .hero .hero-actions{order:5;max-width:none;align-self:stretch}
+ .gai .compare{order:6;aspect-ratio:1.17;width:100%}
+ .gai .demo-note{order:7;font-size:12px}
+ .gai .label{font-size:10px;padding:9px;bottom:12px}.gai .before{left:12px}.gai .after{right:12px}
+ .gai .cta{min-height:60px;font-size:16px;padding:16px 20px;width:100%}
+ .gai .pains{display:block}
+ .gai .painitems{display:block;margin:0}
+ .gai .painitems article{padding:28px 0 32px}
+ .gai .painitems article:nth-child(even){transform:none}
+ .gai .painitems article>span{font-size:12px;margin-bottom:20px}
+ .gai .painitems article h3{font-size:26px}
+ .gai .painitems article p{margin-top:16px}
+ .gai .model-detail{width:100%;margin-top:12px}
+ .gai .pains>.cta{margin-top:28px}
+ .gai figcaption{font-size:12px}
+ .gai summary{font-size:19px;gap:14px;padding:22px 0}
+ .gai summary b{width:36px;height:44px;font-size:27px}
+ .gai details p{font-size:16px;padding-bottom:20px}
+ .gai .program{padding-bottom:64px}
+ .gai .program h2{margin-bottom:18px}
+ .gai .program>.intro{margin-bottom:28px}
+ .gai .step summary{font-size:18px;padding:23px 0;gap:14px;align-items:flex-start}
+ .gai .stepnum{min-width:41px;font-size:31px;padding-top:3px}
+ .gai .step summary b{width:29px;padding-top:2px}
+ .gai summary small{font-size:11px;line-height:1.5;margin-bottom:7px}
+ .gai .stepbody{display:block;padding:0 0 28px}
+ .gai .diagram{width:100%;margin-bottom:22px;aspect-ratio:1.5}
+ .gai .stepbody>p{font-size:16px;padding-bottom:18px}
+ .gai .step-output{font-size:16px}
+ .gai .step-output>span{font-size:12px;margin-bottom:7px}
+ .gai .tool{font-size:13px}
+ .gai .program-progress{margin-top:15px}
+ .gai .program-progress small{font-size:12px}
+ .gai .program>.cta{margin-top:30px}
+ .gai .result{display:block}
+ .gai .result>h2{margin-bottom:23px}
+ .gai .result>.intro{margin-bottom:28px}
+ .gai .result-flow{margin-top:30px;font-size:19px;gap:3px}
+ .gai .result-flow b{font-size:22px;margin:0}
+ .gai .result>.step-output{padding-top:22px;margin-top:24px}
+ .gai .practice-note{font-size:13px;margin-top:20px}
+ .gai .teacher{display:flex;flex-direction:column}
+ .gai .teacher>.kicker{margin-bottom:25px}
+ .gai .teacher-gallery{display:block}
+ .gai .portrait img{aspect-ratio:1}
+ .gai .portrait>span{font-size:12px;left:16px;bottom:16px;padding:12px 16px}
+ .gai .teacher-work{width:84%;margin:26px 0 0 auto}
+ .gai .teacher>h2{position:static;font-size:44px;margin:34px 0 22px;align-self:auto}
+ .gai .teacher>p{font-size:18px;max-width:none;padding:0}
+ .gai .pricing{display:block}
+ .gai .pricing>h2{margin-bottom:20px}
+ .gai .pricing>.lead{margin-bottom:30px}
+ .gai .plan{padding:28px 22px;margin-bottom:18px}
+ .gai .plan h3{font-size:24px;margin-top:22px}
+ .gai .price{font-size:54px;margin:26px 0}
+ .gai .plan>p{font-size:16px;line-height:1.9;margin-bottom:25px}
+ .gai .pricing>.fine{font-size:13px;margin-top:20px}
+ .gai .faq{display:block}
+ .gai .faq>h2{font-size:32px;position:static;margin:20px 0 25px}
+ .gai .faq summary{font-size:17px;padding:20px 0;line-height:1.45}
+ .gai .faq p{font-size:16px}
+ .gai .footer-grid{grid-template-columns:minmax(0,1fr)}
+ .gai footer nav:first-of-type{grid-column:auto}
+ .gai footer nav a{min-height:44px;display:flex;align-items:center}
+ .gai .footer-legal{flex-direction:column}
+ .gai dialog{padding:35px 25px}
+ .gai dialog h3{font-size:24px}
+}
+@media(max-width:390px){
+ .gai{--pad:18px}
+ .gai .course-hook{font-size:48px}
+ .gai .plan h3{font-size:22px}
+ .gai .step summary{font-size:17px;gap:10px}
+ .gai .stepnum{min-width:37px;font-size:28px}
+ .gai .facts{font-size:12px;gap:10px}
+}
+/* The revised course story keeps the acid sculpture and lets the longer headline lead. */
+.gai .hero{grid-template-rows:repeat(8,auto)}
+.gai .hero-visual{grid-row:1/7;width:112%;margin-left:-6%;position:relative;top:calc(-1 * clamp(24px,4.5vw,72px))}   /* the chair stands low in its frame: lift it level with the headline */
+.gai .course-hook{font-size:clamp(38px,3.9vw,56px);line-height:1.14;letter-spacing:-.035em;text-transform:none;font-weight:700;width:auto;max-width:650px}
+.gai .course-hook em{font-style:normal;color:var(--accent)}
+.gai .hero-desc{grid-row:3;max-width:55ch;margin:23px 0 0;font-size:18px;line-height:1.55}
+.gai .hero-audience{grid-column:1;grid-row:4;max-width:55ch;color:var(--ink);font-size:17px;line-height:1.6;margin:20px 0 0}
+.gai .hero .facts{grid-row:6;margin:18px 0 64px;font-size:13px;font-weight:500;line-height:1.55;color:var(--muted)}
+.gai .hero .facts span{min-height:0;display:inline}
+.gai .hero .hero-actions{grid-row:5;margin-top:32px}
+.gai .hero .compare{grid-row:7}
+.gai .hero .demo-note{grid-row:8}
+.gai .painitems article p+p{margin-top:12px}
+.gai .pains>h2{max-width:1150px}
+.gai .step summary{font-size:clamp(21px,2.2vw,30px)}
+.gai .step summary strong{font-weight:650;color:var(--ink)}
+.gai .result>.intro{max-width:72ch}
+@media(max-width:767px){
+ .gai .course-hook{font-size:clamp(29px,8vw,44px);line-height:1.17;letter-spacing:-.035em;order:1}
+ .gai .hero-desc{order:2;font-size:16px;line-height:1.62;margin-top:24px}
+ .gai .hero-audience{order:3;font-size:15px;line-height:1.6;margin:18px 0 0}
+ .gai .hero-visual{order:4;width:100%;margin:15px 0 -8px;top:0}
+ .gai .hero .facts{order:6;margin:14px 0 30px;font-size:12px;line-height:1.55}
+ .gai .hero .hero-actions{margin-top:8px}
+ .gai .hero-actions{flex-direction:column;gap:10px}
+ .gai .hero-actions .cta{flex:none;width:100%}
+ .gai .hero .compare{order:7}
+ .gai .hero .demo-note{order:8}
+ .gai .pains>h2{font-size:clamp(29px,7.2vw,42px)}
+ .gai .step summary{font-size:17px;line-height:1.35}
+}
+@media(min-width:768px) and (max-width:900px){
+ .gai .course-hook{font-size:clamp(30px,3.9vw,36px)}
+}
+@media(prefers-reduced-motion:reduce){html:has(.gai){scroll-behavior:auto}.gai,.gai *,.gai *::before,.gai *::after{animation:none!important;transition:none!important}}

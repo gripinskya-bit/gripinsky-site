@@ -1,0 +1,14 @@
+{
+  "name": "gripinsky-ai-3d-landing",
+  "private": true,
+  "type": "module",
+  "description": "Лендинг курса «ИИ в 3D» GRIPINSKY для публикации в Тильде блоками T123",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build-tilda.mjs",
+    "check": "node scripts/check-published.mjs"
+  },
+  "engines": {
+    "node": ">=20.11"
+  }
+}

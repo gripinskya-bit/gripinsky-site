@@ -32,6 +32,8 @@ npm run preview      # собранный сайт на http://localhost:4322
 
 `docs/HANDOFF.md` (бриф), `docs/analysis/` (UX/UI, маркетинг и SEO, архитектура), `docs/decisions.md`, `docs/open-questions.md`, `docs/url-map.md`.
 
+Лендинг «ИИ в 3D» для Тильды (блоки T123, отдельно от сборки сайта): `landings/ai-3d-tilda/`, см. его README.
+
 
 ## Промежуточная публикация на GitHub Pages
 
